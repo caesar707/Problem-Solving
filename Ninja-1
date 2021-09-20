@@ -1,0 +1,87 @@
+fun main() {
+    findConsecutiveNumbers(8)
+    //isPalindrome(2302)
+    //isRotate("CDAB", "ABCD")
+    //isRotate("ABCD", "BACD")
+}
+
+fun findConsecutiveNumbers(num: Int) {
+   
+    var start = 1
+    val end = (num+1)/2
+    
+    while(start < end) {
+        var sum = 0
+        
+        for(i in start..end){
+            sum += i
+            
+            if (sum == num){
+                
+                for (n in start..i){
+                    
+                    print(n)
+                    
+                    if(n != i)
+                    	print("-")
+                    else
+                    	print("\n")
+                }
+                
+            }
+            
+        }
+        
+        if (sum > num){
+            print("Not Awesome Number") // Not Awesome Number..!
+            break
+        }
+        
+        sum = 0
+        start++
+    }
+    
+}
+//////////////////////////////////////////////////////////////////////////////////
+
+fun isPalindrome(num: Int) {
+    
+    val number = num.toString()
+    
+    var end = number.length - 1
+    var start = 0
+    
+    var valid = false
+    
+    while(start <= end) {
+        
+        if(number[start] != number[end]){
+            valid = false
+            break
+        }
+        
+        start++
+        end--
+        
+        valid = true
+        
+    }
+    
+    if(valid) print("Is Palindrome!") else print("Is NOT Palindrome!")
+    
+}
+
+//////////////////////////////////////////////////////////////////
+
+fun isRotate(str1: String, str2: String) {
+    
+    if ((str1.length == str2.length) 
+        && (str1 + str1).indexOf(str2) != -1)
+    
+    	print("Is Rotated")
+    
+    else
+    
+    	print("Is NOT Rotated")
+}
+///////////////////////////////////////////////////////////////
